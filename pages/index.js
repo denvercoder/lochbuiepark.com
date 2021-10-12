@@ -1,8 +1,12 @@
-    /* This example requires Tailwind CSS v2.0+ */
+/* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from 'react'
 import { Popover, Transition } from '@headlessui/react'
 import {
+  BookmarkAltIcon,
+  CalendarIcon,
   MenuIcon,
+  ShieldCheckIcon,
+  SupportIcon,
   XIcon,
 } from '@heroicons/react/outline'
 import Image from 'next/image'
@@ -23,7 +27,9 @@ export default function Example() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-6 md:justify-start md:space-x-10">
             <div className="flex justify-start lg:w-0 lg:flex-1">
-              <p className="text-4xl text-green-600 font-bold">Lochbuie Park</p>
+              <a href="#">
+                <h1 className="text-3xl text-green-600 font-bold">Lochbuie Park</h1>
+              </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
               <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
@@ -62,11 +68,10 @@ export default function Example() {
                     >
                       <Popover.Panel className="absolute left-1/2 z-10 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
                         <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                          
                           <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
                             <div>
                               <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                                Recent Posts
+                                Recent Events
                               </h3>
                               <ul role="list" className="mt-4 space-y-4">
                                 {recentPosts.map((item) => (
@@ -78,12 +83,12 @@ export default function Example() {
                                 ))}
                               </ul>
                             </div>
-                            <div className="mt-5 text-sm">
+                            {/* <div className="mt-5 text-sm">
                               <a href="#" className="font-medium text-green-600 hover:text-green-500">
                                 {' '}
                                 View all posts <span aria-hidden="true">&rarr;</span>
                               </a>
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </Popover.Panel>
@@ -112,7 +117,7 @@ export default function Example() {
               <div className="pt-5 pb-6 px-5">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p>Lochbuie Park</p>
+                  <h1 className="text-3xl text-green-600 font-bold">Lochbuie Park</h1>
                   </div>
                   <div className="-mr-2">
                     <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-green-500">
@@ -120,6 +125,19 @@ export default function Example() {
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
                   </div>
+                </div>
+              </div>
+              <div className="py-6 px-5 space-y-6">
+                <div className="grid grid-cols-1 gap-y-4 gap-x-8">
+                  {recentPosts.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="text-base font-medium text-gray-900 hover:text-gray-700"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
@@ -131,20 +149,16 @@ export default function Example() {
         <div className="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
           <div className="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
-              <span className="block xl:inline">Welcome to </span>{' '}
+              <span className="block xl:inline">Welcome to</span>{' '}
               <span className="block text-green-600 xl:inline">Lochbuie Park</span>
             </h1>
             <p className="mt-3 max-w-md mx-auto text-lg text-gray-500 sm:text-xl md:mt-5 md:max-w-3xl">
-             A public park in the city of Lochbuie, CO in the Silver Peaks Community.
+              A public park in Lochbuie, CO within the Silver Peaks Community.
             </p>
           </div>
         </div>
         <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-          <Image layout="fill"
-            className="absolute inset-0 w-full h-full object-cover"
-            src="/lochbuie.png"
-            alt=""
-          />
+          <Image src="/lochbuie.png" layout="fill"/>
         </div>
       </main>
     </div>
