@@ -5,6 +5,7 @@ import {
   MenuIcon,
   XIcon,
 } from '@heroicons/react/outline'
+import Image from 'next/image'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 
 const recentPosts = [
@@ -139,7 +140,7 @@ export default function Example() {
           </div>
         </div>
         <div className="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
-          <img
+          <Image layout="fill"
             className="absolute inset-0 w-full h-full object-cover"
             src="/lochbuie.png"
             alt=""
